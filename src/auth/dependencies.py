@@ -1,7 +1,6 @@
 from typing import Any, List
 
-from fastapi import Depends, Request, status
-from fastapi.exceptions import HTTPException
+from fastapi import Depends, Request
 from fastapi.security import HTTPBearer
 from fastapi.security.http import HTTPAuthorizationCredentials
 from sqlmodel.ext.asyncio.session import AsyncSession

@@ -1,6 +1,6 @@
 from src.books.schemas import BookCreateModel
 
-books_prefix = f"/api/v1/books"
+books_prefix = "/api/v1/books"
 
 
 def test_get_all_books(test_client,fake_book_service,fake_session):

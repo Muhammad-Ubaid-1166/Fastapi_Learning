@@ -1,7 +1,6 @@
 from typing import List
 
 from fastapi import APIRouter, Depends, status
-from fastapi.exceptions import HTTPException
 from sqlmodel.ext.asyncio.session import AsyncSession
 
 from src.auth.dependencies import AccessTokenBearer, RoleChecker

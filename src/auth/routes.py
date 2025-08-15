@@ -18,7 +18,6 @@ from .schemas import (
     UserBooksModel,
     UserCreateModel,
     UserLoginModel,
-    UserModel,
     EmailModel,
     PasswordResetRequestModel,
     PasswordResetConfirmModel,
@@ -33,7 +32,6 @@ from .utils import (
 )
 from src.errors import UserAlreadyExists, UserNotFound, InvalidCredentials, InvalidToken
 from src.config import Config
-from src.db.main import get_session
 from src.celery_tasks import send_email
 
 auth_router = APIRouter()
