@@ -1,80 +1,89 @@
-# FastAPI Beyond CRUD 
-
-This is the source code for the [FastAPI Beyond CRUD](https://youtube.com/playlist?list=PLEt8Tae2spYnHy378vMlPH--87cfeh33P&si=rl-08ktaRjcm2aIQ) course. The course focuses on FastAPI development concepts that go beyond the basic CRUD operations.
-
-For more details, visit the project's [website](https://jod35.github.io/fastapi-beyond-crud-docs/site/).
-
-## Table of Contents
-
-1. [Getting Started](#getting-started)
-2. [Prerequisites](#prerequisites)
-3. [Project Setup](#project-setup)
-4. [Running the Application](#running-the-application)
-5. [Running Tests](#running-tests)
-6. [Contributing](#contributing)
-
-## Getting Started
-Follow the instructions below to set up and run your FastAPI project.
-
-### Prerequisites
-Ensure you have the following installed:
-
-- Python >= 3.10
-- PostgreSQL
-- Redis
-
-### Project Setup
-1. Clone the project repository:
-    ```bash
-    git clone https://github.com/jod35/fastapi-beyond-CRUD.git
-    ```
-   
-2. Navigate to the project directory:
-    ```bash
-    cd fastapi-beyond-CRUD/
-    ```
-
-3. Create and activate a virtual environment:
-    ```bash
-    python3 -m venv env
-    source env/bin/activate
-    ```
-
-4. Install the required dependencies:
-    ```bash
-    pip install -r requirements.txt
-    ```
-
-5. Set up environment variables by copying the example configuration:
-    ```bash
-    cp .env.example .env
-    ```
-
-6. Run database migrations to initialize the database schema:
-    ```bash
-    alembic upgrade head
-    ```
-
-7. Open a new terminal and ensure your virtual environment is active. Start the Celery worker (Linux/Unix shell):
-    ```bash
-    sh runworker.sh
-    ```
-
-## Running the Application
-Start the application:
-
-```bash
-fastapi dev src/
-```
-Alternatively, you can run the application using Docker:
-```bash
-docker compose up -d
-```
-## Running Tests
-Run the tests using this command
-```bash
-pytest
-```
-
-## Contributing
-I welcome contributions to improve the documentation! You can contribute [here](https://github.com/jod35/fastapi-beyond-crud-docs).
+                                                                                                                                                                     │
+│ # FastAPI Beyond CRUD                                                                                                                                                │
+│                                                                                                                                                                      │
+│ A robust and scalable FastAPI application demonstrating advanced patterns beyond basic Create, Read, Update, Delete (CRUD) operations. This project integrates       │
+│ asynchronous tasks with Celery and Redis, manages database migrations with Alembic, and provides structured modules for authentication, user management, and         │
+│ resource handling (Books, Reviews, Tags).                                                                                                                            │
+│                                                                                                                                                                      │
+│ ## Features                                                                                                                                                          │
+│                                                                                                                                                                      │
+│ *   **Authentication & Authorization:** Secure user registration, login, token-based authentication (JWT), and role-based access control.                            │
+│ *   **Modular Project Structure:** Organized codebase with clear separation of concerns (routes, schemas, services, database models).                                │
+│ *   **Database Management:** PostgreSQL integration with SQLAlchemy ORM and Alembic for schema migrations.                                                           │
+│ *   **Asynchronous Task Processing:** Celery with Redis as a message broker for handling background tasks (e.g., email notifications, data processing).              │
+│ *   **Email Services:** Integration for sending emails (e.g., password resets, account verification).                                                                │
+│ *   **Comprehensive Error Handling:** Centralized error handling for consistent API responses.                                                                       │
+│ *   **Dependency Injection:** Leverages FastAPI's dependency injection system for clean and testable code.                                                           │
+│ *   **Testing:** Unit and integration tests to ensure code reliability.                                                                                              │
+│                                                                                                                                                                      │
+│ ## Technologies Used                                                                                                                                                 │
+│                                                                                                                                                                      │
+│ *   **FastAPI:** High-performance web framework for building APIs with Python.                                                                                       │
+│ *   **Python:** The primary programming language.                                                                                                                    │
+│ *   **SQLAlchemy:** Python SQL toolkit and Object Relational Mapper.                                                                                                 │
+│ *   **Alembic:** Lightweight database migration tool for SQLAlchemy.                                                                                                 │
+│ *   **PostgreSQL:** Robust relational database.                                                                                                                      │
+│ *   **Celery:** Distributed task queue for asynchronous task processing.                                                                                             │
+│ *   **Redis:** In-memory data structure store, used as Celery broker and for caching.                                                                                │
+│ *   **Pydantic:** Data validation and settings management using Python type hints.                                                                                   │
+│ *   **Uvicorn:** ASGI server for running FastAPI applications.                                                                                                       │
+│                                                                                                                                                                      │
+│ ## Prerequisites                                                                                                                                                     │
+│                                                                                                                                                                      │
+│ Before you begin, ensure you have the following installed:                                                                                                           │
+│                                                                                                                                                                      │
+│ *   **Docker** & **Docker Compose:** For running the database, Redis, and Celery services.                                                                           │
+│ *   **Python 3.8+**                                                                                                                                                  │
+│ *   **pip** (Python package installer)                                                                                                                               │
+│                                                                                                                                                                      │
+│ ## Getting Started                                                                                                                                                   │
+│                                                                                                                                                                      │
+│ Follow these steps to set up and run the project locally.                                                                                                            │
+│                                                                                                                                                                      │
+│ ### 1. Clone the Repository                                                                                                                                          │
+│                                                                                                                                                                      │
+│ ```bash                                                                                                                                                              │
+│ git clone https://github.com/Muhammad-Ubaid-1166/Fastapi_Learning.git                                                                                                │
+│ cd FastAPI_Learning                                                                                                                                                  │
+│ ```                                                                                                                                                                  │
+│                                                                                                                                                                      │
+│ ### 2. Set Up Environment Variables                                                                                                                                  │
+│                                                                                                                                                                      │
+│ Copy the example environment file and fill in your details.                                                                                                          │
+│                                                                                                                                                                      │
+│ ```bash                                                                                                                                                              │
+│ cp .env.example .env                                                                                                                                                 │
+│ ```                                                                                                                                                                  │
+│                                                                                                                                                                      │
+│ Open the  file and configure your database connection string, secret keys, email settings, etc.                                                                      │
+│                                                                                                                                                                      │
+│ ### 3. Start Services with Docker Compose                                                                                                                            │
+│                                                                                                                                                                      │
+│ This will spin up PostgreSQL, Redis, and Celery services.                                                                                                            │
+│                                                                                                                                                                      │
+│ ```bash                                                                                                                                                              │
+│ docker-compose up -d                                                                                                                                                 │
+│ ```                                                                                                                                                                  │
+│                                                                                                                                                                      │
+│ ### 4. Install Python Dependencies                                                                                                                                   │
+│                                                                                                                                                                      │
+│ Create a virtual environment and install the required Python packages.                                                                                               │
+│                                                                                                                                                                      │
+│ ```bash                                                                                                                                                              │
+│ python3 -m venv env                                                                                                                                                  │
+│ source env/bin/activate                                                                                                                                              │
+│ pip install -r requirements.txt                                                                                                                                      │
+│ ```                                                                                                                                                                  │
+│                                                                                                                                                                      │
+│ ### 5. Run Database Migrations                                                                                                                                       │
+│                                                                                                                                                                      │
+│ Apply the database schema using Alembic.                                                                                                                             │
+│                                                                                                                                                                      │
+│ ```bash                                                                                                                                                              │
+│ alembic upgrade head                                                                                                                                                 │
+│ ```                                                                                                                                                                  │
+│                                                                                                                                                                      │
+│ ### 6. Run the FastAPI Application                                                                                                                                   │
+│                                                                                                                                                                      │
+│ ```bash                                                                                                                                                              │
+│ uvicorn src.main:app --host 0.0.0.0 --port 8000 --reload          
