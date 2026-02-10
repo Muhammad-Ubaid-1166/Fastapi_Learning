@@ -28,8 +28,8 @@ def upgrade() -> None:
     sa.PrimaryKeyConstraint('uid')
     )
     op.create_table('booktag',
-    sa.Column('book_id', sqlmodel.sql.sqltypes.GUID(), nullable=False),
-    sa.Column('tag_id', sqlmodel.sql.sqltypes.GUID(), nullable=False),
+    sa.Column('book_id', postgresql.UUID(), nullable=False),
+    sa.Column('tag_id', postgresql.UUID(), nullable=False),
     sa.ForeignKeyConstraint(['book_id'], ['books.uid'], ),
     sa.ForeignKeyConstraint(['tag_id'], ['tags.uid'], ),
     sa.PrimaryKeyConstraint('book_id', 'tag_id')

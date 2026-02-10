@@ -24,9 +24,9 @@ class TagService:
 
         statement = select(Tag).order_by(desc(Tag.created_at))
 
-        result = await session.exec(statement)
+        result = await session.execute(statement)
 
-        return result.all()
+        return result.scalars().all()
 
     async def add_tags_to_book(
         self, book_uid: str, tag_data: TagAddModel, session: AsyncSession
@@ -39,7 +39,7 @@ class TagService:
             raise BookNotFound()
 
         for tag_item in tag_data.tags:
-            result = await session.exec(select(Tag).where(Tag.name == tag_item.name))
+            result = await session.execute(select(Tag).where(Tag.name == tag_item.name))
 
             tag = result.one_or_none()
             if not tag:
@@ -56,18 +56,18 @@ class TagService:
 
         statement = select(Tag).where(Tag.uid == tag_uid)
 
-        result = await session.exec(statement)
+        result = await session.execute(statement)
 
-        return result.first()
+        return result.scalars().first()
 
     async def add_tag(self, tag_data: TagCreateModel, session: AsyncSession):
         """Create a tag"""
 
         statement = select(Tag).where(Tag.name == tag_data.name)
 
-        result = await session.exec(statement)
+        result = await session.execute(statement)
 
-        tag = result.first()
+        tag = result.scalars().first()
 
         if tag:
             raise TagAlreadyExists()

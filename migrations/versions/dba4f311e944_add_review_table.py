@@ -27,8 +27,8 @@ def upgrade() -> None:
         sa.Column("uid", sa.UUID(), nullable=False),
         sa.Column("rating", sa.Integer(), nullable=False),
         sa.Column("review_text", sqlmodel.sql.sqltypes.AutoString(), nullable=False),
-        sa.Column("user_uid", sqlmodel.sql.sqltypes.GUID(), nullable=True),
-        sa.Column("book_uid", sqlmodel.sql.sqltypes.GUID(), nullable=True),
+        sa.Column("user_uid", postgresql.UUID(), nullable=True),
+        sa.Column("book_uid", postgresql.UUID(), nullable=True),
         sa.Column("created_at", postgresql.TIMESTAMP(), nullable=True),
         sa.Column("update_at", postgresql.TIMESTAMP(), nullable=True),
         sa.ForeignKeyConstraint(

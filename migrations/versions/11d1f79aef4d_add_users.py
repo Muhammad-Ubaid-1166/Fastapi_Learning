@@ -45,7 +45,7 @@ def upgrade() -> None:
         sa.Column("published_date", sa.Date(), nullable=False),
         sa.Column("page_count", sa.Integer(), nullable=False),
         sa.Column("language", sqlmodel.sql.sqltypes.AutoString(), nullable=False),
-        sa.Column("user_uid", sqlmodel.sql.sqltypes.GUID(), nullable=True),
+        sa.Column("user_uid", postgresql.UUID(), nullable=True),
         sa.Column("created_at", postgresql.TIMESTAMP(), nullable=True),
         sa.Column("update_at", postgresql.TIMESTAMP(), nullable=True),
         sa.ForeignKeyConstraint(
